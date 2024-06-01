@@ -1,5 +1,7 @@
 src/config/config.json
 src/.env
+node_modules/
+pyvenv.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
