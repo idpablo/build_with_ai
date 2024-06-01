@@ -1,0 +1,8 @@
+{
+    "prefix": "!",
+    "token": "MTI0NjUyNjE1MjA1NTcxNzk0OA.G3i_ez.h_zHlY8eY-xgbWfp_6uqgy-QF8SVGv5HkhxO5o",
+    "permissions": "8",
+    "application_id": "1246526152055717948",
+    "sync_commands_globally": true,
+    "google_api_key":"http://glpi.prodataweb.inf.br/apirest.php/"
+}
