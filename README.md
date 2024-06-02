@@ -63,21 +63,20 @@ pm2 monit
 ### Reiniciar aplicação
 
 ```bash
-pm2 restart prodatinha
+pm2 restart 
 ```
 
 ### Parar aplicação
 
 ```bash
-pm2 stop prodatinha
+pm2 stop
 ```
 
 ### logs
 
 ```bash
-pm2 logs prodatinha
+pm2 logs 
 ```
 
 # Melhorias
 
-    Adicionar controle de containers para subir e testar se a aplicação esta funcionando corretamente;
