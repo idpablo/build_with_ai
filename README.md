@@ -51,7 +51,7 @@ pm2 start ecosystem.config.js
 ### logs prodatinha
 
 ```bash
-pm2 logs prodatinha
+pm2 logs 
 ```
 
 ### Monitorar tarefas pm2
