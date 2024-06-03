@@ -53,6 +53,9 @@ async def on_ready():
 
     logger.info('Sincronizado com comandos globais...')
 
+    await status_bot()
+    await bot.tree.sync()
+
 @bot.event
 async def on_close(error):
     if isinstance(error, discord.errors.GatewayNotFound):
@@ -63,16 +66,26 @@ async def on_close(error):
 @bot.command(name='chat')
 async def chat(ctx, *, message: str):
 
-    response = await gemini_chat.search_gemini(message)
+    processo_atual = inspect.currentframe().f_code.co_name 
 
-    if len(response) > 2000:
-        for i in range(0, len(response), 2000):
-            await ctx.send(response[i:i+2000])
-    else:
-        await ctx.send(response)
+    try:
+
+        response = await gemini_chat.search_gemini(message)
+
+        if len(response) > 2000:
+            for i in range(0, len(response), 2000):
+                await ctx.send(response[i:i+2000])
+        else:
+            await ctx.send(response)
+        
+        logger.info(f'Message: {message}')
+        logger.info(ctx.guild)
+
+        await status_bot()
     
-    logger.info(f'Message: {message}')
-    logger.info(ctx.guild)
+    except Exception as exception:
+
+        logger.error(f'{processo_atual} - {exception}')
 
 try:
 
