@@ -78,7 +78,7 @@ PREFIX=!
 pm2 start ecosystem.config.js
 ```
 
-### logs prodatinha
+### logs
 
 ```bash
 pm2 logs discord_chat
@@ -100,12 +100,6 @@ pm2 restart discord_chat
 
 ```bash
 pm2 stop discord_chat
-```
-
-### logs
-
-```bash
-pm2 logs discord_chat
 ```
 
 ## Documentação
