@@ -4,6 +4,7 @@
 ## Sobre
 
  Bot desenvolvido a partir das APIs disponibilizadas pelo Discord e Google Gemini:
+ ###
  [Dashboard API](https://discord.com/developers/applications)
  ###
  [Documentação API](https://discord.com/developers/docs/intro)
