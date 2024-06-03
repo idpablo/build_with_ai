@@ -16,7 +16,7 @@ load_dotenv()
 
 bot = Bot
 
-TOKEN = os.getenv("TOKEN")
+DISCORD_API_KEY = os.getenv("DISCORD_API_KEY")
 
 intents = discord.Intents.all()
 intents.messages = True
@@ -69,14 +69,14 @@ async def chat(ctx, *, message: str):
         for i in range(0, len(response), 2000):
             await ctx.send(response[i:i+2000])
     else:
-        await ctx.send(f'Resposta: {response}')
+        await ctx.send(response)
     
     logger.info(f'Message: {message}')
     logger.info(ctx.guild)
 
 try:
 
-    bot.run(TOKEN) 
+    bot.run(DISCORD_API_KEY) 
     
 except GatewayNotFound as exeption:
 

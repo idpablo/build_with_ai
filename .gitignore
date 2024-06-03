@@ -1,6 +1,4 @@
 src/config/config.json
-src/.env
-node_modules/
 pyvenv.cfg
 Scripts/
 
