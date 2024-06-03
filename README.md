@@ -3,8 +3,12 @@
  
 ## Sobre
 
- Bot desenvolvido a partir da api disponibilizada pelo discord:
- [Dashboard API](https://discord.com/developers/applications) / [Documentação API](https://discord.com/developers/docs/intro)
+ Bot desenvolvido a partir das APIs disponibilizadas pelo Discord e Google Gemini:
+ [Dashboard API](https://discord.com/developers/applications)
+ ###
+ [Documentação API](https://discord.com/developers/docs/intro)
+ ###
+ [Gemini API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
  
 ## Tecnologias usadas
 
@@ -106,10 +110,4 @@ pm2 restart discord_chat
 ```bash
 pm2 stop discord_chat
 ```
-
-## Documentação
-
-[Gemini API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
-###
-[Discord API](https://discord.com/developers/docs/intro)
 
