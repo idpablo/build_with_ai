@@ -32,7 +32,7 @@ npm install pm2 -g
    git clone https://github.com/idpablo/build_with_ai.git
 ```
    
-O comando a seguir deve ser executado após o download do codigo e na pasta raiz que o diretorio foi clonado
+O comando a seguir deve ser executado após o download do codigo na pasta raiz que o diretorio foi clonado
 
 ```
 raiz/
