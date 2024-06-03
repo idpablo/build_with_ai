@@ -27,6 +27,7 @@ npm install pm2 -g
 ### Criando ambiente virtual
 # O comando a seguir deve ser executado após a clonagem do repositorio e na pasta raiz que o diretorio foi clonado
 
+```
 raiz/
 │
 ├──build_with_ai/
@@ -35,6 +36,7 @@ raiz/
 │ │   ├── chat/
 │ │   ├── util/
 │ │   └── discord_chat.py
+```
 
 ```bash
 python -m venv build_with_ai
