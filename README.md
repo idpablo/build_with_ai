@@ -108,8 +108,10 @@ pm2 stop discord_chat
 pm2 logs discord_chat
 ```
 
-# Documentação
+## Documentação
 
-# Gemini API: https://ai.google.dev/gemini-api/docs?hl=pt-br
-# Discord API: https://discord.com/developers/docs/intro
+```
+Gemini API: https://ai.google.dev/gemini-api/docs?hl=pt-br
+Discord API: https://discord.com/developers/docs/intro
+```
 
