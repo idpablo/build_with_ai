@@ -7,9 +7,9 @@
  ###
  [Dashboard API](https://discord.com/developers/applications)
  ###
- [Documentação API](https://discord.com/developers/docs/intro)
+ [Documentação Discord API](https://discord.com/developers/docs/intro)
  ###
- [Gemini API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+ [Documentação Gemini API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
  
 ## Tecnologias usadas
 
