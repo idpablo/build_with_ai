@@ -18,7 +18,7 @@
 ### Dependências globais
 Python3 / NodeJS / pm2
 
-### Instale o PM2 de forma Global
+Instale o PM2 de forma Global
 
 ```bash
 npm install pm2 -g
@@ -28,10 +28,11 @@ npm install pm2 -g
 
 1. Clone o repositório:
 
-   ```bash
+```bash
    git clone https://github.com/idpablo/build_with_ai.git
+```
    
-### O comando a seguir deve ser executado após o download do codigo e na pasta raiz que o diretorio foi clonado
+O comando a seguir deve ser executado após o download do codigo e na pasta raiz que o diretorio foi clonado
 
 ```
 raiz/
