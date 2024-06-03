@@ -77,7 +77,6 @@ pip install -r dependency.md
 ```
 GEMINI_API_KEY=
 TOKEN=
-PREFIX=!
 ```
 
 6. Iniciar aplicação
