@@ -44,12 +44,13 @@ raiz/
 │ │   └── discord_chat.py
 ```
 
-### Criando ambiente virtual
+2. Criando ambiente virtual
 
 ```bash
 python -m venv build_with_ai
 ```
-### Iniciando ambiente virtual
+
+3. Iniciando ambiente virtual
 
 ```bash
 cd build_with_ai
@@ -57,14 +58,15 @@ LINUX: ./Scripts/activate
 WINDOWS: ./Scripts/activate.bat
 ```
 
-### Dependências locais
+4. Dependências locais
 
 ```bash
 pip install -r dependency.md
 ```
-### Crie e configure as variaveis de ambiente com arquivo .env no diretorio src do projeto
 
-# Inclua as seguintes variaveis:
+5. Crie e configure as variaveis de ambiente com arquivo .env no diretorio src do projeto
+
+   Inclua as seguintes variaveis:
 
 ```
 GEMINI_API_KEY=
@@ -72,11 +74,13 @@ TOKEN=
 PREFIX=!
 ```
 
-### Iniciar aplicação
+6. Iniciar aplicação
 
 ```bash
 pm2 start ecosystem.config.js
 ```
+
+### Monitore gerencie a aplicação:
 
 ### logs
 
