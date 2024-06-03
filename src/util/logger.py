@@ -1,3 +1,4 @@
+import os
 import logging
 
 class LoggingFormatter(logging.Formatter):
@@ -33,6 +34,8 @@ class LoggingFormatter(logging.Formatter):
         return formatter.format(record)
 
 def setup_logger(logger_name: str,  log_file: str = 'log/sighelp.log'):
+
+    os.makedirs(os.path.dirname('../log/'), exist_ok=True)
 
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.INFO)

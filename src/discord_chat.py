@@ -5,28 +5,23 @@ import discord
 import platform
 
 from util import logger
-from config import config
+from chat import gemini_chat
 from dotenv import load_dotenv
 from discord.ext.commands import Bot  
 from discord.ext import tasks, commands 
 from discord.errors import GatewayNotFound
 
-logger = logger.setup_logger('gemini_chat', '../log/gemini_chat.log')
-config = config.config.load_config() 
+logger = logger.setup_logger('discord_chat', '../log/bot.log')
+load_dotenv()
 
 bot = Bot
-bot.config = config  
+
+TOKEN = os.getenv("TOKEN")
 
 intents = discord.Intents.all()
-intents.presences = False
 intents.messages = True
-intents.guilds = True
 
-bot = Bot(
-    command_prefix=commands.when_mentioned_or(config['prefix']), 
-    intents=intents,
-    help_command=None,
-)
+bot = Bot(command_prefix='!', intents=intents,)
 
 async def status_bot(status=None, estado=None) -> None: 
 
@@ -56,9 +51,7 @@ async def on_ready():
     logger.info(f'Rodando na plataforma: {platform.system()} {platform.release()} ({os.name})')
     logger.info('-------------------')
 
-    if config['sync_commands_globally']: 
-        logger.info('Sincronizado com comandos globais...')
-        await bot.tree.sync()
+    logger.info('Sincronizado com comandos globais...')
 
 @bot.event
 async def on_close(error):
@@ -67,9 +60,23 @@ async def on_close(error):
     else:
         logger.error(f'WebSocket closed unexpectedly: {error}')
 
+@bot.command(name='chat')
+async def chat(ctx, *, message: str):
+
+    response = await gemini_chat.search_gemini(message)
+
+    if len(response) > 2000:
+        for i in range(0, len(response), 2000):
+            await ctx.send(response[i:i+2000])
+    else:
+        await ctx.send(f'Resposta: {response}')
+    
+    logger.info(f'Message: {message}')
+    logger.info(ctx.guild)
+
 try:
 
-    bot.run(config['token']) 
+    bot.run(TOKEN) 
     
 except GatewayNotFound as exeption:
 

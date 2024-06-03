@@ -1,3 +1,4 @@
+aiofiles
 discord
 python-dotenv
-Gemini-chat-Python
+install google-generativeai

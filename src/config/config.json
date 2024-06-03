@@ -1,7 +1,0 @@
-{
-    "prefix": "!",
-    "token": "Token_api_discord",
-    "permissions": "8",
-    "application_id": "id_app",
-    "sync_commands_globally": true,
-}
