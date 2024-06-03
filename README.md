@@ -24,8 +24,14 @@ Python3 / NodeJS / pm2
 npm install pm2 -g
 ```
 
-### Criando ambiente virtual
-# O comando a seguir deve ser executado após a clonagem do repositorio e na pasta raiz que o diretorio foi clonado
+## Configuração
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/idpablo/build_with_ai.git
+   
+### O comando a seguir deve ser executado após o download do codigo e na pasta raiz que o diretorio foi clonado
 
 ```
 raiz/
@@ -37,6 +43,8 @@ raiz/
 │ │   ├── util/
 │ │   └── discord_chat.py
 ```
+
+### Criando ambiente virtual
 
 ```bash
 python -m venv build_with_ai
