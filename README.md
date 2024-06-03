@@ -11,7 +11,6 @@
 <div style="display: inline_block"><br>
   <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   <img align="center" alt="Discord" height="30" width="40" src="https://www.svgrepo.com/show/452188/discord.svg">
-  <img align="center" alt="Ubuntu" height="30" width="40" src="">
   <img align="center" alt="Ubuntu" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/ubuntu/ubuntu-original.svg">
   <img align="center" alt="Ubuntu" height="30" width="40" src="https://github.com/idpablo/build_with_ai/blob/main/img/google-gemini-icon.svg">
 </div>
