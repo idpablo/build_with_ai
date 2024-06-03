@@ -9,15 +9,32 @@
 ## Tecnologias usadas
 
 <div style="display: inline_block"><br>
-  <img align="center" alt="Gemini-Chat-Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+  <img align="center" alt="Python" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   <img align="center" alt="Discord" height="30" width="40" src="https://www.svgrepo.com/show/452188/discord.svg">
-  <img align="center" alt="Gemini-Chat-Python" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/ubuntu/ubuntu-plain.svg">
+  <img align="center" alt="Ubuntu" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/ubuntu/ubuntu-plain.svg">
+  <img align="center" alt="Ubuntu" height="30" width="40" src="https://github.com/idpablo/build_with_ai/blob/main/img/google-gemini-icon.svg">
 </div>
 
 ### Dependências globais
 Python3 / NodeJS / pm2
 
+### Instale o PM2 de forma Global
+
+```bash
+npm install pm2 -g
+```
+
 ### Criando ambiente virtual
+# O comando a seguir deve ser executado após a clonagem do repositorio e na pasta raiz que o diretorio foi clonado
+
+raiz/
+│
+├──build_with_ai/
+│ │
+│ ├── src/
+│ │   ├── chat/
+│ │   ├── util/
+│ │   └── discord_chat.py
 
 ```bash
 python -m venv build_with_ai
@@ -35,12 +52,13 @@ WINDOWS: ./Scripts/activate.bat
 ```bash
 pip install -r dependency.md
 ```
+### Crie e configure as variaveis de ambiente com arquivo .env no diretorio src do projeto
 
-### Diretorios necessarios
+# Inclua as seguintes variaveis:
 
-```bash
-mkdir /build_with_ai/log/
-```
+# GEMINI_API_KEY=
+# TOKEN=
+# PREFIX=!
 
 ### Iniciar aplicação
 
@@ -51,32 +69,35 @@ pm2 start ecosystem.config.js
 ### logs prodatinha
 
 ```bash
-pm2 logs 
+pm2 logs discord_chat
 ```
 
 ### Monitorar tarefas pm2
 
 ```bash
-pm2 monit
+pm2 monit discord_chat
 ```
 
 ### Reiniciar aplicação
 
 ```bash
-pm2 restart 
+pm2 restart discord_chat
 ```
 
 ### Parar aplicação
 
 ```bash
-pm2 stop
+pm2 stop discord_chat
 ```
 
 ### logs
 
 ```bash
-pm2 logs 
+pm2 logs discord_chat
 ```
 
-# Melhorias
+# Documentação
+
+# Gemini API: https://ai.google.dev/gemini-api/docs?hl=pt-br
+# Discord API: https://discord.com/developers/docs/intro
 
