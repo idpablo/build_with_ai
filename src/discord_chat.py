@@ -20,12 +20,11 @@ bot = Bot
 DISCORD_API_KEY = os.getenv("DISCORD_API_KEY")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
-channel = bot.get_channel(int(CHANNEL_ID))
-
 intents = discord.Intents.all()
 intents.messages = True
 
 bot = Bot(command_prefix='!', intents=intents,)
+channel = bot.get_channel(int(CHANNEL_ID))
 
 def job():
     asyncio.create_task(send_message())
