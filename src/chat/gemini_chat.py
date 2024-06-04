@@ -41,7 +41,7 @@ model = genai.GenerativeModel(
 async def search_gemini(message):
 
   start_time = time.time()
-  processo_atual = inspect.currentframe().f_code.co_name 
+  current_process = inspect.currentframe().f_code.co_name 
 
   try:
 
@@ -57,7 +57,7 @@ async def search_gemini(message):
     end_time = time.time()
     elapsed_time = end_time - start_time
     
-    logger.info(f'Mansagem enviada com exito.')
+    logger.info(f'Mensagem enviada com exito.')
     logger.info(f"Tempo de execução: {elapsed_time:.4f} segundos")
 
 
@@ -65,13 +65,13 @@ async def search_gemini(message):
 
   except Exception as exception:
 
-    logger.error(f'{processo_atual} - {exception}')
+    logger.error(f'{current_process} - {exception}')
 
 
 async def search_news():
     
     start_time = time.time()
-    processo_atual = inspect.currentframe().f_code.co_name
+    current_process = inspect.currentframe().f_code.co_name
 
     try:
 
@@ -87,4 +87,4 @@ async def search_news():
 
     except Exception as exception:
 
-      logger.error(f'{processo_atual} - {exception}')
+      logger.error(f'{current_process} - {exception}')

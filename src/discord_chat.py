@@ -33,13 +33,14 @@ schedule.every().day.at("08:00").do(job)
 
 async def send_message():
 
-    processo_atual = inspect.currentframe().f_code.co_name 
+    current_process = inspect.currentframe().f_code.co_name 
 
     try:
 
         news, elapsed_time = await gemini_chat.search_news()
 
         await channel.send("Bom dia! Esta é a sua atualização de noticias diária às 8 horas da manhã.")
+
         if len(news) > 2000:
             for i in range(0, len(news), 2000):
                 await channel.send(news[i:i+2000])
@@ -54,12 +55,12 @@ async def send_message():
     
     except Exception as exception:
 
-        logger.error(f'{processo_atual} - {exception}')
+        logger.error(f'{current_process} - {exception}')
 
 @bot.command(name='chat')
 async def chat(ctx, *, message: str):
 
-    processo_atual = inspect.currentframe().f_code.co_name 
+    current_process = inspect.currentframe().f_code.co_name 
 
     try:
 
@@ -80,11 +81,11 @@ async def chat(ctx, *, message: str):
     
     except Exception as exception:
 
-        logger.error(f'{processo_atual} - {exception}')
+        logger.error(f'{current_process} - {exception}')
 
 async def status_bot(status=None, estado=None) -> None: 
 
-    processo_atual = inspect.currentframe().f_code.co_name 
+    current_process = inspect.currentframe().f_code.co_name 
 
     try:
         statuses = ['com outros bots.', 'Paciência!', 'com humanos!']
@@ -99,7 +100,7 @@ async def status_bot(status=None, estado=None) -> None:
     
     except Exception as exception:
 
-        logger.error(f'{processo_atual} - {exception}')
+        logger.error(f'{current_process} - {exception}')
 
 @bot.event
 async def on_close(error):
