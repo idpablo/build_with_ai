@@ -8,92 +8,83 @@ https://ai.google.dev/gemini-api/docs/get-started/python
 
 """
 import os
-import json
-import asyncio
+import time
+import inspect
 import google.generativeai as genai
 
 from util import logger
 from dotenv import load_dotenv
 
-file_path = '../json_data/'
+logger = logger.setup_logger('gemini_chat', '../log/bot.log') 
+
 dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
 
 load_dotenv(dotenv_path=dotenv_path)
 
-logger = logger.setup_logger('gemini_chat', '../log/bot.log') 
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-async def search_gemini(menssage):
+generation_config = {
+  "temperature": 1,
+  "top_p": 0.95,
+  "top_k": 64,
+  "max_output_tokens": 8192,
+  "response_mime_type": "text/plain",
+}
 
-  logger.info(f'Mensagem a ser processada:{menssage}')
+genai.configure(api_key=GEMINI_API_KEY)
 
-  GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+model = genai.GenerativeModel(
+  model_name="gemini-1.5-pro",
+  generation_config=generation_config,
+)
 
-  genai.configure(api_key=GEMINI_API_KEY)
+async def search_gemini(message):
 
-  generation_config = {
-    "temperature": 1,
-    "top_p": 0.95,
-    "top_k": 64,
-    "max_output_tokens": 8192,
-    "response_mime_type": "text/plain",
-  }
+  start_time = time.time()
+  processo_atual = inspect.currentframe().f_code.co_name 
 
-  safety_settings = [
-    {
-      "category": "HARM_CATEGORY_HARASSMENT",
-      "threshold": "BLOCK_NONE",
-    },
-    {
-      "category": "HARM_CATEGORY_HATE_SPEECH",
-      "threshold": "BLOCK_NONE",
-    },
-    {
-      "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-      "threshold": "BLOCK_NONE",
-    },
-    {
-      "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-      "threshold": "BLOCK_NONE",
-    },
-  ]
+  try:
 
-  model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
-    safety_settings=safety_settings,
-    generation_config=generation_config,
-  )
+    logger.info(f'Mensagem a ser processada:{message}')
 
-  chat_session = model.start_chat(
-    history=[
-    ]
-  )
+    chat_session = model.start_chat(
+      history=[
+      ]
+    )
+      
+    response = chat_session.send_message(message)
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
     
-  response = chat_session.send_message(menssage)
-  # asyncio.create_task(save_response_to_json(response))
+    logger.info(f'Mansagem enviada com exito.')
+    logger.info(f"Tempo de execução: {elapsed_time:.4f} segundos")
 
-  print(response)
 
-  return response.text
+    return response.text, elapsed_time
 
-# async def save_response_to_json(response):
-#     """
-#     Salva a resposta em um arquivo JSON.
+  except Exception as exception:
 
-#     Args:
-#         response (GenerateContentResponse): A resposta a ser salva.
-#     """
+    logger.error(f'{processo_atual} - {exception}')
 
-#     try:
-#         os.makedirs(os.path.dirname(file_path), exist_ok=True)
-#         file_path_json = os.path.join(file_path, 'gemini_response.json')
 
-#         json_response = json.dumps(response, indent=2)
+async def search_news():
+    
+    start_time = time.time()
+    processo_atual = inspect.currentframe().f_code.co_name
 
-#         with open(file_path_json, 'w') as arquivo_json:
-#             json.dump(json_response, arquivo_json)
+    try:
 
-#         return True
+        response = model.generate_content('Liste as noticias de tecnologia mais recentes.')
 
-#     except Exception as e:
-#         logger.info(f'Erro ao salvar JSON: {e}')
-#         return False
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        
+        logger.info(f'Mansagem enviada com exito.')
+        logger.info(f"Tempo de execução: {elapsed_time:.4f} segundos")
+
+        return response.text, elapsed_time
+
+    except Exception as exception:
+
+      logger.error(f'{processo_atual} - {exception}')

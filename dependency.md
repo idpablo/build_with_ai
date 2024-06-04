@@ -1,3 +1,4 @@
 discord
+schedule
 python-dotenv
-install google-generativeai
+google-generativeai
