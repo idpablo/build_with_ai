@@ -77,6 +77,7 @@ pip install -r dependency.md
 ```
 GEMINI_API_KEY=
 DISCORD_API_KEY=
+CHANNEL_ID=
 ```
 
 6. Iniciar aplicação
